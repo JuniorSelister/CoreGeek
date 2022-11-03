@@ -35,35 +35,9 @@ public class ProductTest {
     }
 
     @Test
-    @Description("It should return a date from an object inserted")
-    public void getDateProductInsertedNow() throws ParseException {
-        System.out.println("Product Inserted: " + prod.getPrdDateInserted());
-    }
-
-    @Test
-    @Description("It should return a date edited")
-    public void getDateProductEdited() throws ParseException {
-        prod.setPrdDateEdited("25/10/2022");
-        System.out.println("Product Edited: " + prod.getPrdDateEdited());
-    }
-
-    @Test
-    @Description("It should return a date deleted")
-    public void setDateProductDeleted() throws ParseException {
-        prod.setPrdDateDeleted("27/10/2022");
-        System.out.println("Product Deleted: " + prod.getPrdDateDeleted());
-    }
-
-    @Test
-    @Description("It should return date information from a product")
-    public void getDateFromAProduct() throws ParseException{
-        System.out.println("Inserted: " + prod.getPrdDateInserted());
-
-        prod.setPrdDateEdited("25/10/2022");
-        System.out.println("Edited: " + prod.getPrdDateEdited());
-
-        prod.setPrdDateDeleted("27/10/2022");
-        System.out.println("Deleted: " + prod.getPrdDateDeleted());
+    @Description("It should return the date from object instanced")
+    public void getDateNow() {
+        System.out.println(prod.getDateNow());
     }
 
 }

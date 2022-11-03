@@ -18,12 +18,11 @@ public class Constraint {
         return sdf.format(inputDate);
     }
 
-    public static String getDate(String dateRecord) throws ParseException {
+    public static String getDate(Date dateRecord) {
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        Date inputDate = sdf.parse(dateRecord);
 
-        return sdf.format(inputDate);
+        return sdf.format(dateRecord);
     }
 
     public static String setNewDateRecord(String dateRecord) throws ParseException {

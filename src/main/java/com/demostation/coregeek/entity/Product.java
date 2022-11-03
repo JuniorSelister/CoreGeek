@@ -3,7 +3,7 @@ package com.demostation.coregeek.entity;
 import com.demostation.coregeek.base.Constraint;
 
 import java.io.Serializable;
-import java.text.ParseException;
+import java.util.Date;
 import java.util.Objects;
 
 public class Product implements Serializable {
@@ -16,21 +16,19 @@ public class Product implements Serializable {
     private String prdDetail;
     private String prdObservation;
     private String prdImg;
-    private String prdDateInserted; // This will come as default once inserted
-    private String prdDateEdited; // After modified this will come as default
-    private String prdDateDeleted; // Sema rule as above
+    private Date prdDateInserted;
+    private Date prdDateEdited;
+    private Date prdDateDeleted;
 
     public Product () {}
 
-    public Product(Integer id_prod, String prdName, Double prdPrice, String prdDetail, String prdObservation) throws ParseException {
+    public Product(Integer id_prod, String prdName, Double prdPrice, String prdDetail, String prdObservation) {
         this.id_prod = id_prod;
         this.prdName = prdName;
         this.prdPrice = prdPrice;
         this.prdDetail = prdDetail;
         this.prdObservation = prdObservation;
-        this.prdDateInserted = Constraint.setDateNow();
-        this.prdDateEdited = "";
-        this.prdDateDeleted = "";
+        this.prdDateInserted = new Date();
     }
 
     public Integer getId_prod() {
@@ -73,28 +71,32 @@ public class Product implements Serializable {
         this.prdObservation = prdObservation;
     }
 
-    public String getPrdDateInserted() {
+    public Date getPrdDateInserted() {
         return prdDateInserted;
     }
 
-    public void setPrdDateInserted(String prdDateInserted) throws ParseException {
-        this.prdDateInserted = Constraint.setNewDateRecord(prdDateInserted);
+    public String getDateNow() {
+        return Constraint.getDate(prdDateInserted);
     }
 
-    public String getPrdDateEdited() throws ParseException {
-        return Constraint.getDate(prdDateEdited);
+    public void setPrdDateInserted(Date prdDateInserted) {
+        this.prdDateInserted = prdDateInserted;
     }
 
-    public void setPrdDateEdited(String prdDateEdited) throws ParseException {
-        this.prdDateEdited = Constraint.setNewDateRecord(prdDateEdited);
+    public Date getPrdDateEdited() {
+        return prdDateEdited;
     }
 
-    public String getPrdDateDeleted() throws ParseException {
-        return Constraint.getDate(prdDateDeleted);
+    public void setPrdDateEdited(Date prdDateEdited) {
+        this.prdDateEdited = prdDateEdited;
     }
 
-    public void setPrdDateDeleted(String prdDateDeleted) throws ParseException {
-        this.prdDateDeleted = Constraint.setNewDateRecord(prdDateDeleted);
+    public Date getPrdDateDeleted() {
+        return prdDateDeleted;
+    }
+
+    public void setPrdDateDeleted(Date prdDateDeleted) {
+        this.prdDateDeleted = prdDateDeleted;
     }
 
     @Override
