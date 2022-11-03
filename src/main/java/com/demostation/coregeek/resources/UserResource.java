@@ -18,7 +18,7 @@ public class UserResource {
 
     @RequestMapping(method = RequestMethod.GET)
     public List<User> listUsers() {
-        Address address1 = new Address("94110180");
+        Address address1 = new Address("94110180", "39");
         Bank bank1 = new Bank(1, "1238941-2", "8121", "Banco do Brasil");
         Product prod1 = new Product(1, "one", 39.9, "Detail", "No Obs");
         List<Product> products = new ArrayList<>();

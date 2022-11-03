@@ -24,7 +24,7 @@ public class Address implements Serializable {
 
     private int result = 0;
 
-    public Address(String postalCode) {
+    public Address(String postalCode, String number) {
 
         try {
             URL url = new URL("http://cep.republicavirtual.com.br/web_cep.php?cep=" + Constraint.POSTALCODE(postalCode) + "&formato=xml");
@@ -34,11 +34,11 @@ public class Address implements Serializable {
             for (Iterator i = root.elementIterator(); i.hasNext(); ) {
                 Element element = (Element) i.next();
 
-                if (element.getQualifiedName().equals("estado")) {
+                if (element.getQualifiedName().equals("uf")) {
                     setAddressState(element.getText());
                 }
                 if (element.getQualifiedName().equals("cidade")) {
-                    setAddressState(element.getText());
+                    setAddressCity(element.getText());
                 }
                 if (element.getQualifiedName().equals("bairro")) {
                     setAddressNeighbor(element.getText());
@@ -49,12 +49,15 @@ public class Address implements Serializable {
                 if (element.getQualifiedName().equals("logradouro")) {
                     setAddressName(element.getText());
                 }
-
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        this.addressCountry = "Brasil";
+        this.addressNumber = number;
+        this.addressPostalCode = Constraint.POSTALCODEFORMATTED(postalCode);
 
     }
 

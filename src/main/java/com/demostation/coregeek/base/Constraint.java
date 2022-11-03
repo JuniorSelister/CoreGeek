@@ -10,6 +10,10 @@ public class Constraint {
         return postalCode.replaceAll("[^\\d.]", "");
     }
 
+    public static String POSTALCODEFORMATTED(String postalCode) {
+        return postalCode.substring(0, 5) + "-" + postalCode.substring(5, 8);
+    }
+
     public static String setDateNow() throws ParseException {
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
