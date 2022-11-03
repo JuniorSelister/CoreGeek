@@ -1,5 +1,7 @@
 package com.demostation.coregeek.entity;
 
+import com.demostation.coregeek.base.Constraint;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -57,6 +59,10 @@ public class User implements Serializable {
 
     public Date getDob() {
         return dob;
+    }
+
+    public String getDateNow() {
+        return Constraint.getDate(dob);
     }
 
     public void setDob(Date dob) {
