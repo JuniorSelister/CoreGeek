@@ -12,7 +12,7 @@ public class AddressTest {
     @DisplayName("It should return the address name")
     public void testAddressName() {
         String postalCode = "94110-180";
-        Address address = new Address(Constraint.POSTALCODE(postalCode));
+        Address address = new Address(Constraint.POSTALCODE(postalCode), "39");
         System.out.println(address.getAddressName() + " " + Constraint.POSTALCODE(postalCode));
         Assertions.assertEquals("Augusto Pestana", address.getAddressName());
     }
