@@ -20,6 +20,14 @@ public class Cart {
         // It should take a time to think how to populate dateCart
     }
 
+    public Double getPrdTotalPrice() {
+        return prdTotalPrice;
+    }
+
+    public void setPrdTotalPrice(Double prdTotalPrice) {
+        this.prdTotalPrice = prdTotalPrice;
+    }
+
     @Override
     public String toString() {
         return "Cart{" +
