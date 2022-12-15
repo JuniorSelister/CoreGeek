@@ -23,14 +23,13 @@ public class User implements Serializable {
 
     public User () {}
 
-    public User(Integer id_user, String firstName, String lastName, Date dob, Address address, Bank bank, List<Product> listProducts) {
+    public User(Integer id_user, String firstName, String lastName, Date dob, Address address, Bank bank) {
         this.id_user = id_user;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.address = address;
         this.bank = bank;
-        this.listProducts = listProducts;
     }
 
     public Integer getId_user() {
