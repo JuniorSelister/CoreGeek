@@ -23,4 +23,9 @@ public class ProductService {
         return repo.save(obj);
     }
 
+    public Product update(Product obj) {
+        findProduct(obj.getId_prod());
+        return repo.save(obj);
+    }
+
 }
