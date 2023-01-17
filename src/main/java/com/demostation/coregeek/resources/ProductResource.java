@@ -4,11 +4,10 @@ import com.demostation.coregeek.entity.Product;
 import com.demostation.coregeek.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,6 +29,14 @@ public class ProductResource {
     public ResponseEntity<?> listProducts(@PathVariable Integer id) {
         Product obj = service.findProduct(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(method=RequestMethod.POST)
+    public ResponseEntity<Void> insert(@RequestBody Product obj) {
+        obj = service.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(obj.getId_prod()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
 }
