@@ -28,4 +28,9 @@ public class ProductService {
         return repo.save(obj);
     }
 
+    public void delete(Integer id) {
+        findProduct(id);
+        repo.deleteById(id);
+    }
+
 }
