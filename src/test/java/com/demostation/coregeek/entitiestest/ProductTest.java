@@ -4,7 +4,9 @@ import com.demostation.coregeek.entity.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.Description;
 
+import java.math.BigInteger;
 import java.text.ParseException;
+import java.util.Scanner;
 
 public class ProductTest {
 
