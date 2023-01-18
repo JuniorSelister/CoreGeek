@@ -5,6 +5,7 @@ import com.demostation.coregeek.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,6 +32,10 @@ public class ProductService {
     public void delete(Integer id) {
         findProduct(id);
         repo.deleteById(id);
+    }
+
+    public List<Product> findAll() {
+        return repo.findAll();
     }
 
 }
